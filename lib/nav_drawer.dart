@@ -16,7 +16,7 @@ class NavBar extends StatelessWidget {
             accountEmail: const Text('notnotnerds@gmail.com'),
             currentAccountPicture: CircleAvatar(
               child: ClipOval(
-                child: Image.asset('images/n3_logo.png',
+                child: Image.asset('assets/images/n3_logo.png',
                   //fit: BoxFit.cover,
                   //width: 90,
                   //height: 90,
@@ -40,7 +40,7 @@ class NavBar extends StatelessWidget {
           ),
           ListTile(
             leading: const Image(
-              image: AssetImage("images/chub.webp"),
+              image: AssetImage("assets/images/chub.webp"),
             ),
             title: const Text("Device Selection"),
             onTap: (){

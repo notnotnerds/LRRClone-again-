@@ -35,7 +35,7 @@ class MyHomePage extends StatelessWidget {
       child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-    Image.asset("images/n3_logo.png", width: 170, height: 300),
+    Image.asset("assets/images/n3_logo.png", width: 170, height: 300),
     const Text("NotNotNerds 12051 Made this"),
     ])
       ),
