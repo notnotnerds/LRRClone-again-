@@ -18,7 +18,7 @@ class DriveConstants extends StatelessWidget {
           child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset("images/n3_logo.png", width: 170, height: 300),
+                Image.asset("images/baby-rr.png", width: 300, height: 300),
                 const Text("Drive Constants page"),
               ])
       ),

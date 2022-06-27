@@ -39,8 +39,8 @@ class NavBar extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(
-              Icons.ac_unit,
+            leading: const Image(
+              image: AssetImage("images/chub.webp"),
             ),
             title: const Text("Device Selection"),
             onTap: (){
