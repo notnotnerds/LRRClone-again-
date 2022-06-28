@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'nav_drawer.dart';
-bool isChub=true;
+var isChub=true;
 String chubIs="Control Hub";
 
 class SelectionPage extends StatefulWidget {
@@ -14,6 +15,13 @@ class SelectionPage extends StatefulWidget {
 }
 
 class _SelectionPageState extends State<SelectionPage> {
+  _loadData() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    setState(() {
+      final _isChub = preferences.getBool("usingChub");
+      isChub=_isChub!;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,23 +38,26 @@ class _SelectionPageState extends State<SelectionPage> {
       Transform.scale(
         scale: 5,
         child: Switch(
-        value: isChub,
-        activeThumbImage: const AssetImage("assets/images/chub.webp"),
-        inactiveThumbImage: const AssetImage("assets/images/android.jpg"),
+          value: isChub,
+          activeThumbImage: const AssetImage("assets/images/chub.webp"),
+          inactiveThumbImage: const AssetImage("assets/images/android.jpg"),
 
-        onChanged: (value) {
-          setState(() {
-            isChub = value;
-            if(isChub){
-              chubIs="Control Hub";
-            }
-            else{
-              chubIs="Android Phone";
-            }
-
-          });
-        },
-      ),
+          onChanged: (value) {
+            setState(() {
+              isChub = value;
+              if(isChub){
+                chubIs="Control Hub";
+              }
+              else{
+                chubIs="Android Phone";
+              }
+              _persistData() async {
+                SharedPreferences preferences = await SharedPreferences.getInstance();
+                await preferences.setBool("usingChub", isChub);
+              }
+            });
+          },
+        ),
       ),
         Text(chubIs)
         ],
